@@ -42,7 +42,12 @@ const App = () => {
       setTitle("");
       setDescription("");
     } catch (error) {
-      console.error("Error creating Todo:", error);
+      if (error.response && error.response.status === 409) {
+        // Handle the case when the title is not unique
+        alert(error.response.data.error);
+      } else {
+        console.error("Error creating Todo:", error);
+      }
     }
   };
 
