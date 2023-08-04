@@ -56,29 +56,41 @@ const App = () => {
   };
 
   return (
-    <div>
-      <h1>Todo App</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="container mx-auto p-4">
+      <h1 className="text-3xl font-bold mb-4">Todo App</h1>
+      <form onSubmit={handleSubmit} className="mb-4">
         <input
           type="text"
           value={title}
           onChange={handleTitleChange}
           placeholder="Enter a new todo..."
+          className="border border-gray-300 p-2 mr-2"
         />
         <input
           type="text"
           value={description}
           onChange={handleDescriptionChange}
           placeholder="Enter description..."
+          className="border border-gray-300 p-2"
         />
-        <button type="submit">Add Todo</button>
+        <button
+          type="submit"
+          className="bg-blue-500 text-white p-2 ml-2 rounded"
+        >
+          Add Todo
+        </button>
       </form>
       <ul>
         {todos.map((todo) => (
-          <li key={todo.ID}>
+          <li key={todo.ID} className="my-2 p-2 border border-gray-300 rounded">
             <strong>{todo.title}</strong>
             <p>{todo.description}</p>
-            <button onClick={() => handleDelete(todo.ID)}>Delete</button>
+            <button
+              onClick={() => handleDelete(todo.ID)}
+              className="bg-red-500 text-white p-2 ml-2 rounded"
+            >
+              Delete
+            </button>
           </li>
         ))}
       </ul>
