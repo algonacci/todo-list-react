@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const UpdateTodo = ({ todoId }) => {
@@ -70,6 +71,9 @@ const UpdateTodo = ({ todoId }) => {
           Update Todo
         </button>
       </form>
+      <Link to="/" className="bg-gray-500 text-white p-2 rounded">
+        Back to Todos
+      </Link>
     </div>
   );
 };
